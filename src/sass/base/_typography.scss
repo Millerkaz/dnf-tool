@@ -1,0 +1,13 @@
+.typo {
+  &__record-description {
+    text-align: center;
+
+    & > *:not(:last-child) {
+      margin: 0.8rem;
+    }
+
+    &--content {
+      font-size: 3.6rem;
+    }
+  }
+}

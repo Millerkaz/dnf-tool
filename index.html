@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- 字體 -->
+    <link href="" rel="stylesheet" />
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <!-- sass -->
+    <link rel="stylesheet" href="./src/sass/main.scss" />
+    <!-- JS -->
+
+    <title>DFO Farm</title>
+  </head>
+  <body>
+    <header>
+      <div class="header__top-bar">
+        <div class="row">
+          <div class="col-1-of-3">
+            <button class="header__top-bar--add">ADD</button>
+          </div>
+          <div class="col-2-of-3">
+            <div class="header__top-bar--fox">FOX</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="section-list__recordArea">
+        <div class="section-list__record">
+          <div class="row">
+            <div class="col-1-of-3">
+              <div class="section-list__characters">
+                <!-- <div class="section-list__character section-list__character--1" data-id="1">
+                  <img src="./src/img/char/icons/FMageIcon.png" alt="" class="section-list__character--icon" />
+                  <p class="section-list__character--name">NanamiKing</p>
+                </div> -->
+                <div class="section-list__character section-list__character--1" data-id="1">
+                  <img src="./src/img/char/icons/FMageIcon.png" alt="" class="section-list__character--icon" />
+                  <p class="section-list__character--name">NanamiKing</p>
+                </div>
+                <div class="section-list__character section-list__character--1" data-id="1">
+                  <img src="./src/img/char/icons/FMageIcon.png" alt="" class="section-list__character--icon" />
+                  <p class="section-list__character--name">NanamiKing</p>
+                </div>
+                <div class="section-list__character section-list__character--1" data-id="1">
+                  <img src="./src/img/char/icons/FMageIcon.png" alt="" class="section-list__character--icon" />
+                  <p class="section-list__character--name">NanamiKing</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-1-of-3">
+              <div class="section-list__record--raid">
+                <ul>
+                  <li id="field">
+                    <div class="img__boss-shape">
+                      <img src="./src/img/raid/190423_thumbnail.jpg" alt="" class="img__boss img__boss--field" />
+                      <div class="img__boss--name">field</div>
+                    </div>
+                    <div class="section-list__record--description typo__record-description">
+                      <p class="typo__record-description--content"><span class="field--enterTimes">3</span> / <span class="field--totleTimes">3</span></p>
+                      <button class="btn btn-record">reset</button>
+                    </div>
+                  </li>
+                  <li id="isys">
+                    <div class="img__boss-shape">
+                      <img src="./src/img/raid/Portrait-_Prey-Isys.png" alt="" class="img__boss img__boss--isys" />
+                      <div class="img__boss--name">isys</div>
+                    </div>
+                    <div class="section-list__record--description typo__record-description">
+                      <p class="typo__record-description--content"><span class="isys--enterTimes">3</span> / <span class="isys--totleTimes">3</span></p>
+                      <button class="btn btn-record">reset</button>
+                    </div>
+                  </li>
+                  <li id="sirocco">
+                    <div class="img__boss-shape">
+                      <img src="./src/img/raid/Portrait-_Sirocco.png" alt="" class="img__boss img__boss--sirocco" />
+                      <div class="img__boss--name">sirocco</div>
+                    </div>
+                    <div class="section-list__record--description typo__record-description">
+                      <p class="typo__record-description--content"><span class="sirocco--enterTimes">3</span> / <span class="sirocco--totleTimes">3</span></p>
+                      <button class="btn btn-record">reset</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-1-of-3">
+              <div class="section-list__record--quest">
+                <ul>
+                  <li id="exile">
+                    <div class="img__boss-shape">
+                      <img src="./src/img/raid/Devastar.png" alt="" class="img__boss img__boss--exile" />
+                      <div class="img__boss--name">exile</div>
+                    </div>
+                    <div class="section-list__record--description typo__record-description">
+                      <p class="typo__record-description--content"><span class="exile--enterTimes">3</span> / <span class="exile--totleTimes">3</span></p>
+                      <button class="btn btn-record">reset</button>
+                    </div>
+                  </li>
+                  <li id="oculus">
+                    <div class="img__boss-shape">
+                      <img src="./src/img/raid/Prophet_Ezra.png" alt="" class="img__boss img__boss--oculus" />
+                      <div class="img__boss--name">oculus</div>
+                    </div>
+                    <div class="section-list__record--description typo__record-description">
+                      <p class="typo__record-description--content"><span class="oculus--enterTimes">3</span> / <span class="oculus--totleTimes">3</span></p>
+                      <button class="btn btn-record">reset</button>
+                    </div>
+                  </li>
+                  <li id="panda">
+                    <div class="img__boss-shape">
+                      <img src="./src/img/raid/Sarpoza.png" alt="" class="img__boss img__boss--panda" />
+                      <div class="img__boss--name">pandawar</div>
+                    </div>
+                    <div class="section-list__record--description typo__record-description">
+                      <p class="typo__record-description--content"><span class="panda--enterTimes">3</span> / <span class="panda--totleTimes">3</span></p>
+                      <button class="btn btn-record">reset</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- hidden -->
+    <div class="add hidden">
+      <div class="add__container">
+        <form>
+          <label>Character ID :</label><br />
+          <input type="text" class="add__container--name" />
+          <ul>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/Slayer1.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/F.Slayer.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/M.Fighter.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/F.Fighter.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/M.Gunner.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/F.Gunner.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/M.Mage.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/F.Mage.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/Priest1.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/Gunblader2.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/Thief1.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/Knight.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/FPriest2.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/lancer2.jpg" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/Creator2.png" alt="Male Slayer" /></li>
+            <li><input type="radio" name="location" value="MSlayer" /> <img class="add__container--imgbar" src="./src/img/char/DarkKnight2.png" alt="Male Slayer" /></li>
+          </ul>
+          <button type="submit">Add Character</button>
+        </form>
+      </div>
+      <div class="add__outside"></div>
+    </div>
+  </body>
+</html>
+
+<script defer src="./src/js/controller.js"></script>
