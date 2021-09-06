@@ -1,0 +1,72 @@
+.img {
+  &__boss-shape {
+    background-color: rgba($color-black, 0.5);
+    overflow: hidden;
+    border-radius: 10rem;
+    width: 10rem;
+    height: 10rem;
+    box-shadow: 0 0 1rem white;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .img__boss {
+      filter: blur(0.3rem);
+      transform: scale(0.95);
+    }
+
+    &:hover .img__boss--name {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    &:active {
+      box-shadow: 0 0 1rem red;
+    }
+
+    &:active .img__boss--name {
+      color: red;
+    }
+  }
+
+  &__boss {
+    height: 100%;
+    background-size: contain;
+    transition: all 0.2s;
+
+    &--field,
+    &--isys,
+    &--exile,
+    &--oculus,
+    &--panda {
+      position: absolute;
+      left: -20%;
+    }
+
+    &--isys {
+      position: absolute;
+      left: -20%;
+    }
+
+    &--sirocco {
+      width: 100%;
+      position: absolute;
+      left: 51;
+    }
+
+    &--name {
+      transition: transform 0.4s;
+      display: inline-block;
+      position: absolute;
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      transform: translate(-50%, 50%);
+      z-index: 100;
+    }
+  }
+}
