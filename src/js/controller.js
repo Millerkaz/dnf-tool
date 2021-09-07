@@ -64,7 +64,15 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
   if (e.target.closest('.btn--record')) {
     let boss = e.target.closest('li').id;
     let times = Number(document.querySelector(`.${boss}--enterTimes`).textContent);
-    if (times === 3) return;
+
+    if (boss === 'field' || boss === 'isys' || boss === 'sirocco') {
+      if (times >= 2) return;
+      document.querySelector(`.${boss}--enterTimes`).textContent = times + 1;
+      recordEdit(currentHero);
+      return;
+    }
+
+    if (times >= 3) return;
     document.querySelector(`.${boss}--enterTimes`).textContent = times + 1;
     recordEdit(currentHero);
   }
@@ -159,10 +167,10 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       <li id="field">
         <div class="img__boss-shape" data-boss="field">
           <img src="./190423_thumbnail.c222f744.jpg" alt="" class="img__boss img__boss--field" />
-          <div class="img__boss--name">field</div>
+          <div class="img__boss--name">fiend</div>
         </div>
         <div class="section-list__record--description typo__record-description">
-          <p class="typo__record-description--content"><span class="field--enterTimes">${record[id][0]}</span> / <span class="field--totleTimes">3</span></p>
+          <p class="typo__record-description--content"><span class="field--enterTimes">${record[id][0]}</span> / <span class="field--totleTimes">2</span></p>
           <button class="btn btn--record">reset</button>
         </div>
       </li>
@@ -172,7 +180,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
           <div class="img__boss--name">isys</div>
         </div>
         <div class="section-list__record--description typo__record-description">
-          <p class="typo__record-description--content"><span class="isys--enterTimes">${record[id][1]}</span> / <span class="isys--totleTimes">3</span></p>
+          <p class="typo__record-description--content"><span class="isys--enterTimes">${record[id][1]}</span> / <span class="isys--totleTimes">2</span></p>
           <button class="btn btn--record">reset</button>
         </div>
       </li>
@@ -182,7 +190,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
           <div class="img__boss--name">sirocco</div>
         </div>
         <div class="section-list__record--description typo__record-description">
-          <p class="typo__record-description--content"><span class="sirocco--enterTimes">${record[id][2]}</span> / <span class="sirocco--totleTimes">3</span></p>
+          <p class="typo__record-description--content"><span class="sirocco--enterTimes">${record[id][2]}</span> / <span class="sirocco--totleTimes">2</span></p>
           <button class="btn btn--record">reset</button>
         </div>
       </li>
@@ -276,13 +284,13 @@ function recordStorage() {
 
   if (!getLocal('record')) {
     record = {};
-    record[heroName] = [3, 3, 3, 3, 3, 3, 3];
+    record[heroName] = [2, 2, 2, 3, 3, 3, 3];
     storeInLocal('record', record);
     return;
   }
 
   record = getLocal('record');
-  record[heroName] = [3, 3, 3, 3, 3, 3, 3];
+  record[heroName] = [2, 2, 2, 3, 3, 3, 3];
   storeInLocal('record', record);
 }
 
