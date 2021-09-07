@@ -76,7 +76,7 @@ const heroListEl = document.querySelector('.section-list__characters');
 
 let className = {
   MSlayer: 'MSlayer.66f715d8',
-  FSlayer: 'FSlayer.3bf4269a',
+  FSlayer: 'FSlayer.15f07349',
   MFighter: 'MFighter.e2122b56',
   FFighter: 'FFighter.d3c5f637',
   MGunner: 'MGunner.3c3c0d6b',
