@@ -1,3 +1,40 @@
+.section-top-bar {
+  width: $width-pc-rwd;
+
+  @include clearfix;
+
+  &__add {
+    width: 50%;
+    // margin:  50%;
+  }
+
+  &__fox {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+
+    &--text {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+    }
+
+    &--terr {
+      width: 7rem;
+    }
+
+    &--pic {
+      // transform: translateX(30%);
+      background-color: rgba($color-black, 0.5);
+      border-radius: 10rem;
+      width: 10rem;
+      height: 10rem;
+      box-shadow: 0 0 1rem white;
+    }
+  }
+}
+
 .section-list {
   &__character {
     margin: 1rem;
@@ -35,22 +72,36 @@
     }
   }
 
+  &__recordArea {
+    height: 57.6rem;
+  }
+
   &__record {
-    width: 80%;
+    width: 100%;
     margin: 1rem auto;
     color: $color-gray-light;
     border-radius: 5px;
     font-size: 1.6rem;
-    padding: 0 5rem;
+    // padding: 0 5rem;
     background-color: rgba($color-black, 0.5);
     // box-shadow: 0 3rem 10rem rgba($color-black, 0.2);
 
+    &--raid {
+      height: 56rem;
+    }
+
     ul {
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
       list-style: none;
 
       li {
+        flex: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         margin: 2rem 0;
       }
@@ -58,6 +109,10 @@
 
     &--description {
       width: 50%;
+    }
+
+    &--quest {
+      transform: translateX(-10%);
     }
   }
 }

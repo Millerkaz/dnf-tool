@@ -16,5 +16,7 @@
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.39.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }

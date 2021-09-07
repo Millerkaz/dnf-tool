@@ -5,13 +5,13 @@
   height: 100vh;
   top: 0;
   left: 0;
-  //   transition: all 0.5s;
+  // transition: all 0.2s;
 
   &__container {
     flex: 20%;
     height: 100%;
     overflow-y: scroll;
-    background-color: rgba($color-black, 0.6);
+    background-color: rgba($color-black, 0.8);
 
     &--imgbar {
       width: 90%;
@@ -22,6 +22,7 @@
   &__outside {
     flex: 80%;
     height: 100%;
+    background-color: rgba($color-black, 0.5);
   }
 
   form {

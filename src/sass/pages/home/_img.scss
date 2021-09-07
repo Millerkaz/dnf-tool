@@ -53,7 +53,13 @@
     &--sirocco {
       width: 100%;
       position: absolute;
-      left: 51;
+      left: 0%;
+    }
+
+    &--bp {
+      height: 100%;
+      position: absolute;
+      left: 10%;
     }
 
     &--name {

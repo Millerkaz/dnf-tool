@@ -31,6 +31,7 @@
   }
 
   .col-1-of-3 {
+    height: 100%;
     width: calc((100% - #{$width-grid-gutterX} * 2) / 3);
   }
   .col-1-of-4 {

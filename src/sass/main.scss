@@ -1,8 +1,11 @@
 @import './helper/variable';
 @import './helper/utilities';
+@import './helper/mixin';
 
 @import './base/base';
 @import './base/typography';
+
+@import './components/button';
 
 @import './layout/header';
 @import './layout/grid';
