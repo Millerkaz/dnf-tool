@@ -10,7 +10,7 @@ import 'regenerator-runtime/runtime';
 let heroList;
 let record;
 let fox;
-let needSavedHero;
+let currentHero;
 
 function init() {
   foxCheck();
@@ -54,6 +54,7 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
     let times = Number(document.querySelector(`.${boss}--enterTimes`).textContent);
     if (times === 0) return;
     document.querySelector(`.${boss}--enterTimes`).textContent = times - 1;
+    recordEdit(currentHero);
   }
 });
 
@@ -65,6 +66,7 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
     let times = Number(document.querySelector(`.${boss}--enterTimes`).textContent);
     if (times === 3) return;
     document.querySelector(`.${boss}--enterTimes`).textContent = times + 1;
+    recordEdit(currentHero);
   }
 });
 
@@ -73,22 +75,22 @@ const recordArea = document.querySelector('.section-list__recordArea');
 const heroListEl = document.querySelector('.section-list__characters');
 
 let className = {
-  MSlayer: 'MSlayer.142fa79a',
+  MSlayer: 'MSlayer.66f715d8',
   FSlayer: 'FSlayer.3bf4269a',
-  MFighter: 'MFighter.e6fdc51c',
-  FFighter: 'FFighter.a3956b1e',
-  MGunner: 'MGunner.967065a7',
-  FGunner: 'FGunner.427b9785',
-  MMage: 'MMage.5dab0dc0',
-  FMage: 'FMage.235f8caf',
-  MPriest: 'MPriest.4c2fb7f0',
-  FPriest: 'FPriest.850bb943',
-  Knight: 'Knight.dec8b785',
-  DarkKnight: 'DarkKnight.f1e505aa',
-  Agent: 'Agent.38ffebd3',
-  Creator: 'Creator.365d2490',
-  Thief: 'Thief.fc8899da',
-  Lancer: 'Lancer.4ebf43d7',
+  MFighter: 'MFighter.e2122b56',
+  FFighter: 'FFighter.d3c5f637',
+  MGunner: 'MGunner.3c3c0d6b',
+  FGunner: 'FGunner.d8d66bda',
+  MMage: 'MMage.7b68d577',
+  FMage: 'FMage.7d1b7393',
+  MPriest: 'MPriest.8c102bf5',
+  FPriest: 'FPriest.a419702c',
+  Knight: 'Knight.1a241e2f',
+  DarkKnight: 'DarkKnight.c2c570be',
+  Agent: 'Agent.bb68b266',
+  Creator: 'Creator.09d3650d',
+  Thief: 'Thief.fe2dc2cd',
+  Lancer: 'Lancer.99d84edc',
 };
 
 // let heroList = [
@@ -130,7 +132,9 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       return v.name === id;
     });
     heroList.splice(targetIndex, 1);
+    delete record[id];
     storeInLocal('heroList', heroList);
+    storeInLocal('record', record);
     showHeroList();
   }
 
@@ -142,10 +146,8 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
 
     e.target.closest('.section-list__character').classList.add('section-list__character--active');
     let id = e.target.closest('.section-list__character').dataset.id;
-    console.log(needSavedHero, id);
-    recordEdit(needSavedHero);
 
-    needSavedHero = id;
+    currentHero = id;
 
     recordArea.innerHTML = '';
 
@@ -156,7 +158,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
     <ul>
       <li id="field">
         <div class="img__boss-shape" data-boss="field">
-          <img src="./190423_thumbnail.1336a4c2.jpg" alt="" class="img__boss img__boss--field" />
+          <img src="./190423_thumbnail.c222f744.jpg" alt="" class="img__boss img__boss--field" />
           <div class="img__boss--name">field</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -166,7 +168,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="isys">
         <div class="img__boss-shape" data-boss="isys">
-          <img src="./Portrait-_Prey-Isys.99fe8539.png" alt="" class="img__boss img__boss--isys" />
+          <img src="./Portrait-_Prey-Isys.37f6c06a.png" alt="" class="img__boss img__boss--isys" />
           <div class="img__boss--name">isys</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -176,7 +178,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="sirocco">
         <div class="img__boss-shape" data-boss="sirocco">
-          <img src="./Portrait-_Sirocco.9100e0f6.png" alt="" class="img__boss img__boss--sirocco" />
+          <img src="./Portrait-_Sirocco.8dbe21a3.png" alt="" class="img__boss img__boss--sirocco" />
           <div class="img__boss--name">sirocco</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -192,7 +194,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
     <ul>
       <li id="exile">
         <div class="img__boss-shape" data-boss="exile">
-          <img src="./Devastar.d91a0d62.png" alt="" class="img__boss img__boss--exile" />
+          <img src="./Devastar.939da2bd.png" alt="" class="img__boss img__boss--exile" />
           <div class="img__boss--name">exile</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -202,7 +204,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="oculus">
         <div class="img__boss-shape" data-boss="oculus">
-          <img src="./Prophet_Ezra.8b078be2.png" alt="" class="img__boss img__boss--oculus" />
+          <img src="./Prophet_Ezra.d9bfd6f6.png" alt="" class="img__boss img__boss--oculus" />
           <div class="img__boss--name">oculus</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -212,7 +214,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="panda">
         <div class="img__boss-shape" data-boss="panda">
-          <img src="./Sarpoza.3aacf77e.png" alt="" class="img__boss img__boss--panda" />
+          <img src="./Sarpoza.5f026008.png" alt="" class="img__boss img__boss--panda" />
           <div class="img__boss--name">pandawar</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -222,7 +224,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="bp">
         <div class="img__boss-shape" data-boss="bp">
-          <img src="./Horrendous_Astaros.72a4cfce.png" alt="" class="img__boss img__boss--bp" />
+          <img src="./Horrendous_Astaros.ce8e32ab.72a4cfce.png" alt="" class="img__boss img__boss--bp" />
           <div class="img__boss--name">bp</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -288,7 +290,9 @@ function recordEdit(id) {
   let heroName = id;
 
   if (!heroName) return;
+
   record = getLocal('record');
+
   record[heroName] = [Number($('.field--enterTimes').text()), Number($('.isys--enterTimes').text()), Number($('.sirocco--enterTimes').text()), Number($('.exile--enterTimes').text()), Number($('.oculus--enterTimes').text()), Number($('.panda--enterTimes').text()), Number($('.bp--enterTimes').text())];
   storeInLocal('record', record);
 }

@@ -155,7 +155,7 @@ main {
 .section-top-bar__fox {
   width: 100%;
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
 }
 .section-top-bar__fox--text {
   display: flex;
@@ -203,6 +203,9 @@ main {
 .section-list__character--active {
   background-color: rgba(247, 247, 247, 0.2);
 }
+.section-list__recordArea {
+  height: 57.6rem;
+}
 .section-list__record {
   width: 100%;
   margin: 1rem auto;
@@ -230,6 +233,9 @@ main {
 }
 .section-list__record--description {
   width: 50%;
+}
+.section-list__record--quest {
+  transform: translateX(-10%);
 }
 
 .img__boss-shape {
@@ -315,6 +321,7 @@ main {
 .add__outside {
   flex: 80%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .add form {
   text-align: center;
