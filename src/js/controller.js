@@ -224,7 +224,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="bp">
         <div class="img__boss-shape" data-boss="bp">
-          <img src="./Horrendous_Astaros.ce8e32ab.72a4cfce.png" alt="" class="img__boss img__boss--bp" />
+          <img src="./Horrendous_Astaros.ce8e32ab.png" alt="" class="img__boss img__boss--bp" />
           <div class="img__boss--name">bp</div>
         </div>
         <div class="section-list__record--description typo__record-description">
