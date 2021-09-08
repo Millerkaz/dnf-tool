@@ -22,6 +22,9 @@ function init() {
 
 init();
 
+///////////////////////////////////////////////////////////////////////
+//狐狸按鈕監控
+
 function foxCheck() {
   fox = getLocal('fox');
   if (!fox) {
@@ -44,8 +47,24 @@ function foxClick() {
   }
   fox = getLocal('fox');
 }
+
 ///////////////////////////////////////////////////////////////////////
-//record list btn event
+//顯示/隱藏說明頁面
+
+const btnTeachEl = document.querySelector('.btn--nav');
+const teachEl = document.querySelector('.nav__teach');
+const btnTeachCloseEl = document.querySelector('.nav__teach--close');
+
+btnTeachEl.addEventListener('click', function (e) {
+  teachEl.classList.toggle('hidden');
+});
+
+btnTeachCloseEl.addEventListener('click', function (e) {
+  teachEl.classList.add('hidden');
+});
+
+///////////////////////////////////////////////////////////////////////
+//RAID紀錄按鈕事件代理
 
 //boss
 document.querySelector('.section-list__recordArea').addEventListener('click', function (e) {
@@ -79,6 +98,8 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
 });
 
 ///////////////////////////////////////////////////////////////////////
+//顯示英雄列表
+
 const recordArea = document.querySelector('.section-list__recordArea');
 const heroListEl = document.querySelector('.section-list__characters');
 
@@ -125,7 +146,7 @@ showHeroList();
 
 ///////////////////////////////////////////////////////////////////////
 
-// ! click hero bar
+// ! 點擊英雄列表代理
 
 // let record = {
 //   nanami: [3, 3, 3, 3, 3, 3, 3],
@@ -250,6 +271,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
 });
 
 ///////////////////////////////////////////////////////////////////////
+//創建英雄 + 儲存在本地數據
 
 const btnSubmitEl = document.querySelector('.add__container--submit');
 const addFormEl = document.querySelector('.add__container--form');
@@ -332,4 +354,14 @@ ver.1.0.0
 1. 新增/刪除HERO功能
 2.統計RAID進場功能+儲存本地數據
 3.狐狸按鈕功能
+*/
+
+/*
+ver.1.1.0
+1. 變更RAID最大進場次數
+*/
+
+/*
+ver.1.2.0
+1. 新增使用說明
 */

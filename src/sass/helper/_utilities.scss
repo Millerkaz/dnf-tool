@@ -6,8 +6,13 @@
   margin-bottom: 2rem;
 }
 
-.hidden {
+.hidden--add {
   opacity: 0;
   visibility: hidden;
   transform: translateX(-100%);
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
 }

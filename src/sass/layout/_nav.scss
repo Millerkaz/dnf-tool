@@ -1,0 +1,30 @@
+.nav {
+  @include clearfix;
+
+  &__teach {
+    position: relative;
+
+    &--img {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      top: 0;
+      left: 0;
+    }
+
+    &--close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 2rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: none;
+      padding: 0.3rem;
+      font-size: 3rem;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+}
