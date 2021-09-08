@@ -56,11 +56,11 @@ const teachEl = document.querySelector('.nav__teach');
 const btnTeachCloseEl = document.querySelector('.nav__teach--close');
 
 btnTeachEl.addEventListener('click', function (e) {
-  teachEl.classList.toggle('hidden');
+  teachEl.classList.toggle('hidden--img');
 });
 
 btnTeachCloseEl.addEventListener('click', function (e) {
-  teachEl.classList.add('hidden');
+  teachEl.classList.add('hidden--img');
 });
 
 ///////////////////////////////////////////////////////////////////////
