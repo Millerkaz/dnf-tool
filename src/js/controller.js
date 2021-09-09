@@ -14,6 +14,7 @@ let currentHero;
 
 function init() {
   foxCheck();
+  setInterval(checkDayReset, 1000);
   topBarView.creatFox(fox);
   topBarView.addHandler(foxClick);
   heroList = getLocal('heroList');
@@ -21,6 +22,65 @@ function init() {
 }
 
 init();
+
+///////////////////////////////////////////////////////////////////////
+//day reset check
+
+function storeNowTime() {
+  let UTC9Day = new Date().toLocaleString('en-us', {
+    weekday: 'long',
+    timeZone: 'Pacific/Gambier',
+  });
+  localStorage.setItem('daily', JSON.stringify(UTC9Day));
+  localStorage.setItem('weekly', JSON.stringify('no'));
+}
+
+function checkDayReset() {
+  let storageDay = JSON.parse(localStorage.getItem('daily'));
+  let storageWeek = JSON.parse(localStorage.getItem('weekly'));
+
+  if (!storageDay || !storageWeek) {
+    storeNowTime();
+    location.reload();
+    return;
+  }
+
+  let now = new Date().toLocaleString('en-us', {
+    weekday: 'long',
+    timeZone: 'Pacific/Gambier',
+  });
+
+  //DAILY
+  if (storageDay !== now) {
+    localStorage.setItem('daily', JSON.stringify(now));
+    storeInLocal('fox', 'not');
+    console.log('change');
+    location.reload();
+  }
+
+  // console.log('same');
+
+  // WEEKLY
+  //reset
+  if (now === 'Tuesday' && storageWeek === 'no') {
+    let record = getLocal('record');
+    localStorage.setItem('weekly', JSON.stringify('yes'));
+
+    let recordEntries = Object.entries(record);
+    recordEntries.forEach(v => {
+      v[1] = [2, 2, 2, 3, 3, 3, 3];
+    });
+
+    record = Object.fromEntries(recordEntries);
+    storeInLocal('record', record);
+    console.log('change');
+    location.reload();
+  }
+
+  if (now !== 'Tuesday' && storageWeek === 'yes') {
+    localStorage.setItem('weekly', JSON.stringify('no'));
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////
 //狐狸按鈕監控
