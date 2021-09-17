@@ -1,11 +1,18 @@
 'use strict';
 
-import * as model from './model.js';
+// if (module.hot) {
+//   module.hot.accept();
+// }
+
 import $ from 'jquery';
-// import * as helper from './helper.js';
+
+import * as model from './model.js';
+
 import topBarView from './views/topBarView.js';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+
+import '../sass/main.scss';
+
+// import '../img/char/icons';
 
 let heroList;
 let record;
@@ -163,23 +170,42 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
 const recordArea = document.querySelector('.section-list__recordArea');
 const heroListEl = document.querySelector('.section-list__characters');
 
+// let className = {
+//   MSlayer: 'MSlayer.66f715d8',
+//   FSlayer: 'FSlayer.15f07349',
+//   MFighter: 'MFighter.e2122b56',
+//   FFighter: 'FFighter.d3c5f637',
+//   MGunner: 'MGunner.3c3c0d6b',
+//   FGunner: 'FGunner.d8d66bda',
+//   MMage: 'MMage.7b68d577',
+//   FMage: 'FMage.7d1b7393',
+//   MPriest: 'MPriest.8c102bf5',
+//   FPriest: 'FPriest.a419702c',
+//   Knight: 'Knight.1a241e2f',
+//   DarkKnight: 'DarkKnight.c2c570be',
+//   Agent: 'Agent.bb68b266',
+//   Creator: 'Creator.09d3650d',
+//   Thief: 'Thief.fe2dc2cd',
+//   Lancer: 'Lancer.99d84edc',
+// };
+
 let className = {
-  MSlayer: 'MSlayer.66f715d8',
-  FSlayer: 'FSlayer.15f07349',
-  MFighter: 'MFighter.e2122b56',
-  FFighter: 'FFighter.d3c5f637',
-  MGunner: 'MGunner.3c3c0d6b',
-  FGunner: 'FGunner.d8d66bda',
-  MMage: 'MMage.7b68d577',
-  FMage: 'FMage.7d1b7393',
-  MPriest: 'MPriest.8c102bf5',
-  FPriest: 'FPriest.a419702c',
-  Knight: 'Knight.1a241e2f',
-  DarkKnight: 'DarkKnight.c2c570be',
-  Agent: 'Agent.bb68b266',
-  Creator: 'Creator.09d3650d',
-  Thief: 'Thief.fe2dc2cd',
-  Lancer: 'Lancer.99d84edc',
+  MSlayer: 'MSlayer',
+  FSlayer: 'FSlayer',
+  MFighter: 'MFighter',
+  FFighter: 'FFighter',
+  MGunner: 'MGunner',
+  FGunner: 'FGunner',
+  MMage: 'MMage',
+  FMage: 'FMage',
+  MPriest: 'MPriest',
+  FPriest: 'FPriest',
+  Knight: 'Knight',
+  DarkKnight: 'DarkKnight',
+  Agent: 'Agent',
+  Creator: 'Creator',
+  Thief: 'Thief',
+  Lancer: 'Lancer',
 };
 
 // let heroList = [
@@ -195,7 +221,7 @@ function showHeroList() {
   heroList.forEach((obj, i) => {
     let heroBar = `<div class="section-list__character section-list__character--${obj.name}" data-id="${obj.name}">
                   <button>Delete</button>
-                  <img src="./${className[obj.class]}.png" alt="${obj.class}" class="section-list__character--icon" />
+                  <img src="./img/char/icons/${className[obj.class]}.png" alt="${obj.class}" class="section-list__character--icon" />
                   <p class="section-list__character--name">${obj.name}</p>
                 </div>
                 `;
@@ -247,7 +273,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
     <ul>
       <li id="field">
         <div class="img__boss-shape" data-boss="field">
-          <img src="./190423_thumbnail.c222f744.jpg" alt="" class="img__boss img__boss--field" />
+          <img src="./img/raid/190423_thumbnail.jpg" alt="" class="img__boss img__boss--field" />
           <div class="img__boss--name">fiend</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -257,7 +283,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="isys">
         <div class="img__boss-shape" data-boss="isys">
-          <img src="./Portrait-_Prey-Isys.37f6c06a.png" alt="" class="img__boss img__boss--isys" />
+          <img src="./img/raid/Portrait-_Prey-Isys.png" alt="" class="img__boss img__boss--isys" />
           <div class="img__boss--name">isys</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -267,7 +293,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="sirocco">
         <div class="img__boss-shape" data-boss="sirocco">
-          <img src="./Portrait-_Sirocco.8dbe21a3.png" alt="" class="img__boss img__boss--sirocco" />
+          <img src="./img/raid/Portrait-_Sirocco.png" alt="" class="img__boss img__boss--sirocco" />
           <div class="img__boss--name">sirocco</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -283,7 +309,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
     <ul>
       <li id="exile">
         <div class="img__boss-shape" data-boss="exile">
-          <img src="./Devastar.939da2bd.png" alt="" class="img__boss img__boss--exile" />
+          <img src="./img/raid/Devastar.png" alt="" class="img__boss img__boss--exile" />
           <div class="img__boss--name">exile</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -293,7 +319,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="oculus">
         <div class="img__boss-shape" data-boss="oculus">
-          <img src="./Prophet_Ezra.d9bfd6f6.png" alt="" class="img__boss img__boss--oculus" />
+          <img src="./img/raid/Prophet_Ezra.png" alt="" class="img__boss img__boss--oculus" />
           <div class="img__boss--name">oculus</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -303,7 +329,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="panda">
         <div class="img__boss-shape" data-boss="panda">
-          <img src="./Sarpoza.5f026008.png" alt="" class="img__boss img__boss--panda" />
+          <img src="./img/raid/Sarpoza.png" alt="" class="img__boss img__boss--panda" />
           <div class="img__boss--name">pandawar</div>
         </div>
         <div class="section-list__record--description typo__record-description">
@@ -313,7 +339,7 @@ document.querySelector('.section-list__characters').addEventListener('click', fu
       </li>
       <li id="bp">
         <div class="img__boss-shape" data-boss="bp">
-          <img src="./Horrendous_Astaros.ce8e32ab.png" alt="" class="img__boss img__boss--bp" />
+          <img src="./img/raid/Horrendous_Astaros.png" alt="" class="img__boss img__boss--bp" />
           <div class="img__boss--name">bp</div>
         </div>
         <div class="section-list__record--description typo__record-description">

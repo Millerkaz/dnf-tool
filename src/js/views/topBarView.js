@@ -35,8 +35,8 @@ class topBarView extends View {
   creatFox(status) {
     let html = `
               <div class="btn__top-bar btn__top-bar--fox section-top-bar__fox--text ${status === 'finished' ? 'btn__top-bar--active' : ''}">
-                <img src="./Terranium.2126a5dd.png" alt="" class="section-top-bar__fox--terr" />
-                <img src="./Jonathan.71d65bc9.png" alt="" class="section-top-bar__fox--pic" />
+                <img src="./img/fox/Terranium.png" alt="" class="section-top-bar__fox--terr" />
+                <img src="./img/fox/Jonathan.png" alt="" class="section-top-bar__fox--pic" />
               </div>
     `;
 
