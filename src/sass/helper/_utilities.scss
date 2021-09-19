@@ -16,3 +16,9 @@
   opacity: 0;
   visibility: hidden;
 }
+
+.hidden--others {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+}

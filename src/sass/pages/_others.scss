@@ -1,0 +1,22 @@
+.others {
+  position: absolute;
+  right: 0;
+  width: 18%;
+  color: white;
+
+  &__meeting {
+    @include clearfix;
+    flex: 0 1 100%;
+    padding: 1rem;
+    background-color: rgba($color-black, 0.5);
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    &--img {
+      margin: 0 1rem;
+      float: left;
+    }
+
+    &--text {
+    }
+  }
+}

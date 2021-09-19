@@ -40,7 +40,7 @@ class topBarView extends View {
               </div>
     `;
 
-    this._foxContainer.insertAdjacentHTML('beforeend', html);
+    this._foxContainer.insertAdjacentHTML('afterbegin', html);
     this._btnFoxEl = this.getEl('.btn__top-bar--fox');
   }
 

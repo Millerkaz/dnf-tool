@@ -1,0 +1,9 @@
+.status {
+  &--red {
+    color: $color-red-dark;
+  }
+
+  &--green {
+    color: $color-green-dark;
+  }
+}
