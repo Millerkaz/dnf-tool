@@ -29,6 +29,7 @@ function init() {
   heroList = getLocal('heroList');
   record = getLocal('record');
   renderOthers('meeting');
+  renderOthers('revelation', 6);
 }
 
 init();
@@ -176,8 +177,23 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
 
 //OTHERS紀錄按鈕事件代理
 
-//boss
-document.querySelector('.others__meeting').addEventListener('click', function (e) {
+// meeting
+document.querySelector('.others--meeting').addEventListener('click', function (e) {
+  clickOnOthers(e, 'meeting');
+});
+document.querySelector('.others--meeting').addEventListener('click', function (e) {
+  resetOnOthers(e, 'meeting');
+});
+
+// revelation
+document.querySelector('.others--revelation').addEventListener('click', function (e) {
+  clickOnOthers(e, 'revelation');
+});
+document.querySelector('.others--revelation').addEventListener('click', function (e) {
+  resetOnOthers(e, 'revelation', 6);
+});
+
+function clickOnOthers(e, othersName) {
   if (e.target.closest('.img__boss-shape')) {
     let boss = e.target.closest('.img__boss-shape').dataset.boss;
     let times = Number(document.querySelector(`.${boss}--enterTimes`).textContent);
@@ -189,15 +205,13 @@ document.querySelector('.others__meeting').addEventListener('click', function (e
 
     document.querySelector(`.${boss}--enterTimes`).textContent = times - 1;
 
-    storeInLocal('meeting', times - 1);
+    storeInLocal(othersName, times - 1);
   }
-});
+}
 
-//reset
-
-document.querySelector('.others__meeting').addEventListener('click', function (e) {
+function resetOnOthers(e, othersName, num = 3) {
   if (e.target.closest('.btn--record')) {
-    let boss = e.target.closest('.others__meeting').id;
+    let boss = e.target.closest(`.others--${othersName}`).id;
     let times = Number(document.querySelector(`.${boss}--enterTimes`).textContent);
 
     if (times === 0) {
@@ -205,18 +219,18 @@ document.querySelector('.others__meeting').addEventListener('click', function (e
       document.querySelector(`.${boss}--enterTimes`).classList.toggle('status--green');
     }
 
-    if (times >= 3) return;
+    if (times >= num) return;
     document.querySelector(`.${boss}--enterTimes`).textContent = times + 1;
 
-    storeInLocal('meeting', times + 1);
+    storeInLocal(othersName, times + 1);
   }
-});
+}
 
-function renderOthers(boss) {
-  let times = getLocal('meeting');
+function renderOthers(boss, num = 3) {
+  let times = getLocal(boss);
 
   if (!times && times !== 0) {
-    times = 3;
+    times = num;
   }
 
   if (times === 0) {
