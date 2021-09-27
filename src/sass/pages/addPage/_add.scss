@@ -2,16 +2,37 @@
   display: flex;
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   // transition: all 0.2s;
 
+  @media only screen and (max-width: $rwd-medium) {
+    height: 140rem;
+  }
+
+  @media only screen and (max-width: $rwd-small) {
+    height: 250rem;
+  }
+
   &__container {
-    flex: 20%;
+    flex: 0 0 20%;
     height: 100%;
     overflow-y: scroll;
     background-color: rgba($color-black, 0.8);
+    z-index: 3;
+
+    @media only screen and (max-width: $rwd-large) {
+      flex: 0 0 30%;
+    }
+
+    @media only screen and (max-width: $rwd-medium) {
+      flex: 0 0 40%;
+    }
+
+    @media only screen and (max-width: $rwd-small) {
+      flex: 0 0 60%;
+    }
 
     &--imgbar {
       width: 90%;
@@ -20,9 +41,14 @@
   }
 
   &__outside {
-    flex: 80%;
+    flex: 1;
     height: 100%;
     background-color: rgba($color-black, 0.5);
+    z-index: 2;
+
+    @media only screen and (max-width: $rwd-medium) {
+      height: auto;
+    }
   }
 
   form {

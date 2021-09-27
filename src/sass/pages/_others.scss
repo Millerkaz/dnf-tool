@@ -3,6 +3,23 @@
   right: 0;
   width: 18%;
   color: white;
+  z-index: 1;
+
+  @media only screen and (max-width: $rwd-large) {
+    position: relative;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: $rwd-medium) {
+    transform: translateX(16%);
+    width: 32rem;
+  }
+
+  @media only screen and (max-width: $rwd-small) {
+    transform: translate(0%, 450%);
+    width: 90%;
+    margin: 0 auto;
+  }
 
   &__container {
     display: flex;
@@ -11,6 +28,10 @@
     & > * {
       margin-bottom: 1rem;
       flex: 1;
+    }
+
+    @media only screen and (max-width: $rwd-large) {
+      justify-content: space-around;
     }
   }
 
@@ -21,12 +42,26 @@
     background-color: rgba($color-black, 0.5);
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
+
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (max-width: $rwd-large) {
+      flex: 0 0 22%;
+      border-radius: 2rem;
+    }
+
+    @media only screen and (max-width: $rwd-medium) {
+      flex: 100%;
+    }
+
     &--img {
       margin: 0 1rem;
       float: left;
     }
 
     &--text {
+      width: 50%;
     }
   }
 }

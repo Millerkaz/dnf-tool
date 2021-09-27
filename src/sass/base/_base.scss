@@ -2,10 +2,19 @@
   margin: 0;
   padding: 0;
   user-select: none;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
+
+  @media only screen and (max-width: $rwd-large) {
+    font-size: 56.25%; // 9px
+  }
+
+  @media only screen and (max-width: $rwd-small) {
+    font-size: 50%; // 8px
+  }
 }
 
 body {
@@ -13,6 +22,25 @@ body {
   height: 100vh;
   margin: 0px;
   background-image: linear-gradient(to right bottom, rgba(gray, 0.8), rgba(black, 0.8)), url('../img/bg.jpg');
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media only screen and (max-width: $rwd-large) {
+    // height: 100%;
+  }
+
+  @media only screen and (max-width: $rwd-medium) {
+    width: auto;
+    height: 140rem;
+    background-position-x: 88%;
+    background-size: cover;
+  }
+
+  @media only screen and (max-width: $rwd-small) {
+    height: 250rem;
+  }
 }
 
 main {
@@ -22,5 +50,13 @@ main {
   transform: translate(-50%, -50%);
   margin: 0 auto;
   width: $width-pc-rwd;
-  // overflow-y: scroll;
+
+  @media only screen and (max-width: $rwd-large) {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin: 1rem auto 2rem auto;
+    width: 90%;
+  }
 }

@@ -457,8 +457,8 @@ function renderRaid() {
 
   let recordText = `
 <div class="row">
-<div class="col-1-of-2">
-  <div class="section-list__record--raid">
+<div class="col-1-of-2 section-list__record--raid">
+  
     <ul>
       <li id="field">
         <div class="img__boss-shape" data-boss="field">
@@ -491,10 +491,10 @@ function renderRaid() {
         </div>
       </li>
     </ul>
-  </div>
+  
 </div>
-<div class="col-1-of-2">
-  <div class="section-list__record--quest">
+<div class="col-1-of-2 section-list__record--quest">
+  
     <ul>
       <li id="exile">
         <div class="img__boss-shape" data-boss="exile">
@@ -537,7 +537,7 @@ function renderRaid() {
         </div>
       </li>
     </ul>
-  </div>
+  
 </div>
 </div>
 `;

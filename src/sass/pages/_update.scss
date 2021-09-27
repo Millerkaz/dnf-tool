@@ -7,4 +7,8 @@
   bottom: 0;
   background-color: rgba($color-black, 0.5);
   color: white;
+
+  @media only screen and (max-width: $rwd-large) {
+    display: none;
+  }
 }
