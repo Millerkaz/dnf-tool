@@ -1,10 +1,12 @@
 .btn {
-  border: 1px solid rgba($color-black, 0.5);
-  background-color: rgba(gray, 0.5);
-  padding: 1px 5px;
-  margin-left: -0.5rem;
-  margin-right: 1rem;
-  color: white;
+  &--delete {
+    border: 1px solid rgba($color-black, 0.5);
+    background-color: rgba(gray, 0.5);
+    padding: 1px 5px;
+    margin-left: -0.5rem;
+    margin-right: 1rem;
+    color: white;
+  }
 
   &--nav {
     float: right;
@@ -95,6 +97,7 @@
 
   &--record {
     text-transform: uppercase;
+    padding: 0 1rem;
     box-shadow: 0 1rem 1rem rgba($color-black, 0.5);
     border: 0.5rem solid rgba($color-black, 1);
     background-color: rgba($color-black, 0.5);

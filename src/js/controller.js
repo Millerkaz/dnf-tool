@@ -291,7 +291,7 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
     if (!guideHero[boss].includes(currentHero)) {
       e.target.classList.toggle('btn__top-bar--active');
       guideClick(boss, '+');
-      showHeroList();
+      showHeroList(true);
       return;
     }
 
@@ -299,7 +299,7 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
     if (guideHero[boss].includes(currentHero)) {
       e.target.classList.toggle('btn__top-bar--active');
       guideClick(boss, '-');
-      showHeroList();
+      showHeroList(true);
       return;
     }
   }
@@ -408,7 +408,7 @@ function renderOthers(boss, num = 3) {
 //   { name: 'korone', class: 'Knight' },
 // ];
 
-function showHeroList() {
+function showHeroList(guide = false) {
   let className = {
     MSlayer: 'MSlayer',
     FSlayer: 'FSlayer',
@@ -441,8 +441,8 @@ function showHeroList() {
       }
     }
 
-    let heroBar = `<div class="section-list__character section-list__character--${obj.name}" data-id="${obj.name}">
-                  <button class="btn">&times;</button>
+    let heroBar = `<div class="section-list__character section-list__character--${obj.name} ${guide && obj.name === currentHero ? 'section-list__character--active' : ''}" data-id="${obj.name}">
+                  <button class="btn--delete">&times;</button>
                   <img src="./img/char/icons/${className[obj.class]}.png" alt="${obj.class}" class="section-list__character--icon" />
                   <p class="section-list__character--name">${obj.name}</p>
                   <p class="section-list__character--br">Guide Mode</p>
