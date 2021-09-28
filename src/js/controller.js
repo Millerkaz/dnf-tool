@@ -448,12 +448,12 @@ function showHeroList() {
                   <p class="section-list__character--br">Guide Mode</p>
                 <div class="section-list__character--guide">
                   <img src="./img/raid/icons/FW.jpg" alt="FW" class="${guideIcon('field') ? '' : 'hidden--none'}" />
-                  <img src="./img/raid/icons/EX.jpg" alt="EX" class="${guideIcon('exile') ? '' : 'hidden--none'}" />
-                  <img src="./img/raid/icons/PW.jpg" alt="PW" class="${guideIcon('panda') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/IS.jpg" alt="IS" class="${guideIcon('isys') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/SI.jpg" alt="SI" class="${guideIcon('sirocco') ? '' : 'hidden--none'}" />
-                  <img src="./img/raid/icons/BP.jpg" alt="BP" class="${guideIcon('bp') ? '' : 'hidden--none'}" />
+                  <img src="./img/raid/icons/EX.jpg" alt="EX" class="${guideIcon('exile') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/OC.jpg" alt="OC" class="${guideIcon('oculus') ? '' : 'hidden--none'}" />
+                  <img src="./img/raid/icons/PW.jpg" alt="PW" class="${guideIcon('panda') ? '' : 'hidden--none'}" />
+                  <img src="./img/raid/icons/BP.jpg" alt="BP" class="${guideIcon('bp') ? '' : 'hidden--none'}" />
                 </div>
                 </div>
                 `;
