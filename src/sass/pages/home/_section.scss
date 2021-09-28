@@ -75,62 +75,108 @@
     font-size: 1.6rem;
     background-color: rgba($color-black, 0.5);
 
+    display: flex;
+
     @media only screen and (max-width: $rwd-medium) {
       background-color: transparent;
     }
 
-    & > .row {
-      @media only screen and (max-width: $rwd-medium) {
-        background-color: transparent;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      @media only screen and (max-width: $rwd-small) {
-        flex-wrap: wrap;
-      }
+    @media only screen and (max-width: $rwd-small) {
+      flex-wrap: wrap;
     }
 
-    &--raid {
-      height: 56rem;
+    // & > .row {
+    //   @media only screen and (max-width: $rwd-medium) {
+    //     background-color: transparent;
+    //     display: flex;
+    //     justify-content: space-between;
+    //   }
 
-      @media only screen and (max-width: $rwd-medium) {
-        float: none !important;
-        width: 100% !important;
-      }
-    }
+    //   @media only screen and (max-width: $rwd-small) {
+    //     flex-wrap: wrap;
+    //   }
+    // }
 
     ul {
-      height: 100%;
+      width: 100%;
       list-style: none;
 
       display: inline-flex;
-      justify-content: center;
-      // align-items: center;
+      // justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
 
       @media only screen and (max-width: $rwd-medium) {
-        width: 100%;
+        flex: 0 0 100%;
       }
 
       li {
-        flex: 0 1 80%;
+        flex: 0 1 100%;
+        margin: 2rem 0;
+
         display: flex;
         justify-content: center;
         align-items: center;
 
-        margin: 2rem 0;
+        & > *:not(:last-child) {
+          margin-right: 2rem;
+
+          @media only screen and (max-width: $rwd-small) {
+            margin-right: 6rem;
+          }
+        }
+      }
+    }
+
+    &--raid {
+      flex: 0 0 35%;
+      // height: 56rem;
+
+      @media only screen and (max-width: $rwd-medium) {
+        flex: 0 0 100%;
+        float: none !important;
+        width: 100% !important;
+      }
+
+      @media only screen and (max-width: $rwd-small) {
+        flex: 0 0 100%;
       }
     }
 
     &--description {
-      width: 50%;
+      // width: 50%;
     }
 
     &--quest {
+      flex: 0 0 35%;
+
+      ul {
+        @media only screen and (max-width: $rwd-medium) {
+          flex: 0 0 100%;
+        }
+      }
+
+      li {
+        margin: 2rem 0;
+      }
       @media only screen and (max-width: $rwd-medium) {
+        flex: 1;
         float: none !important;
         width: 100% !important;
+      }
+    }
+
+    &--day {
+      flex: 0 0 20%;
+
+      @media only screen and (max-width: $rwd-medium) {
+        flex: 0 0 100%;
+        float: none !important;
+        width: 100% !important;
+      }
+
+      @media only screen and (max-width: $rwd-small) {
+        flex: 0 0 100%;
       }
     }
   }
@@ -157,16 +203,17 @@
     }
 
     @media only screen and (max-width: $rwd-medium) {
+      margin-right: 5rem;
       background-color: rgba($color-black, 0.5);
     }
 
     @media only screen and (max-width: $rwd-medium) {
-      width: 50rem !important;
+      flex: 1;
       // margin-right: 10% !important;
     }
 
     @media only screen and (max-width: $rwd-small) {
-      width: 100% !important;
+      flex: 100%;
       margin-right: 0 !important;
       margin-bottom: 2rem;
     }
@@ -181,7 +228,21 @@
     text-align: left;
     transition: all 0.1s;
 
+    &:hover {
+      cursor: pointer;
+      background-color: rgba($color-gray-light, 0.2);
+      transform: translateY(-3%);
+      box-shadow: 0 1rem 2rem rgba($color-gray-light, 0.2);
+    }
+
+    &:active {
+      // background-color: rgba($color-gray-light, 0.5);
+      transform: translateY(-1%);
+      box-shadow: 0 0.5rem 1rem rgba($color-gray-light, 0.2);
+    }
+
     &--icon {
+      margin-left: 0.5rem;
       transform: translateY(25%);
     }
 
@@ -190,17 +251,49 @@
       margin: 1rem;
     }
 
-    &:hover {
-      cursor: pointer;
-      background-color: rgba($color-gray-light, 0.2);
-      transform: translateY(-10%);
-      box-shadow: 0 1rem 5rem rgba($color-gray-light, 0.2);
+    &--br {
+      margin: 0.5rem 0;
+      color: rgba($color-green-light, 0.5);
+
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      align-items: center;
+
+      &::before,
+      &::after {
+        content: '';
+        height: 1px;
+        background-color: rgba($color-green-light, 0.5);
+      }
+
+      &::before {
+        margin-left: 5rem;
+        margin-right: 1rem;
+      }
+
+      &::after {
+        margin-left: 1rem;
+        margin-right: 5rem;
+      }
     }
 
-    &:active {
-      // background-color: rgba($color-gray-light, 0.5);
-      transform: translateY(-5%);
-      box-shadow: 0 0.5rem 2rem rgba($color-gray-light, 0.2);
+    &--guide {
+      margin: 1rem 0;
+
+      display: flex;
+      justify-content: center;
+
+      img {
+        filter: brightness(1.2);
+        border: 0.5px solid rgba($color-green-light, 0.2);
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 50%;
+
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
     }
 
     &--active {
@@ -209,10 +302,15 @@
   }
 
   &__recordArea {
+    width: 100%;
     height: 57.6rem;
 
+    display: flex;
+    justify-content: space-evenly;
+
     @media only screen and (max-width: $rwd-medium) {
-      max-width: 40% !important;
+      flex: 0 0 44%;
+      flex-wrap: wrap;
     }
 
     & > div {
@@ -222,7 +320,8 @@
     }
 
     @media only screen and (max-width: $rwd-small) {
-      max-width: 100% !important;
+      max-width: unset !important;
+      flex: 0 0 100%;
     }
   }
 }

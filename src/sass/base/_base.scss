@@ -15,6 +15,10 @@ html {
   @media only screen and (max-width: $rwd-small) {
     font-size: 50%; // 8px
   }
+
+  @media only screen and (max-width: $rwd-smallest) {
+    font-size: 43.75%; // 7px
+  }
 }
 
 body {

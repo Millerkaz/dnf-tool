@@ -21,6 +21,10 @@
   transform: translateX(-100%);
 }
 
+.hidden--none {
+  display: none;
+}
+
 .hidden--img {
   opacity: 0;
   visibility: hidden;

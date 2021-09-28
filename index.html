@@ -26,7 +26,10 @@
     </nav>
     <div class="update">
       <ul>
-        <li><span class="status--red">New ver 1.4.1 (2021/09/27) :</span><br />1.網頁可在手機、平板上使用<br /></li>
+        <li><span class="status--red">New ver 2.0.0 (2021/09/28) :</span><br />1.新增副本Guide綁定角色入場總覽<br /></li>
+        2.新增魅惑之塔<br />
+        <br />
+        <li>New ver 1.4.1:<br />1.網頁可在手機、平板上使用<br /></li>
         2.角色無創建上限<br />
         <br />
         <li>ver 1.4.0 :<br />1.新增啟示之夜 <br /></li>
@@ -58,104 +61,120 @@
           </div>
         </div>
       </div>
-      <div>
-        <div class="section-list__record">
-          <div class="row">
-            <div class="col-1-of-3 section-list__characters">
-              <!-- <div class="section-list__character section-list__character--1" data-id="1">
-                  <button>Delete</button>
-                  <img src="./src/img/char/icons/FMage.png" alt="" class="section-list__character--icon" />
-                  <p class="section-list__character--name">NanamiKing</p>
-                </div> -->
-              <!-- section-list__character--active -->
-            </div>
-            <div class="col-2-of-3 section-list__recordArea">
-              <!-- <div class="row">
-                <div class="col-1-of-2">
-                  <div class="section-list__record--raid">
-                    <ul>
-                      <li id="field">
-                        <div class="img__boss-shape" data-boss="field">
-                          <img src="./src/img/raid/190423_thumbnail.jpg" alt="" class="img__boss img__boss--field" />
-                          <div class="img__boss--name">field</div>
-                        </div>
-                        <div class="section-list__record--description typo__record-description">
-                          <p class="typo__record-description--content"><span class="field--enterTimes">3</span> / <span class="field--totleTimes">3</span></p>
-                          <button class="btn btn--record">reset</button>
-                        </div>
-                      </li>
-                      <li id="isys">
-                        <div class="img__boss-shape" data-boss="isys">
-                          <img src="./src/img/raid/Portrait-_Prey-Isys.png" alt="" class="img__boss img__boss--isys" />
-                          <div class="img__boss--name">isys</div>
-                        </div>
-                        <div class="section-list__record--description typo__record-description">
-                          <p class="typo__record-description--content"><span class="isys--enterTimes">3</span> / <span class="isys--totleTimes">3</span></p>
-                          <button class="btn btn--record">reset</button>
-                        </div>
-                      </li>
-                      <li id="sirocco">
-                        <div class="img__boss-shape" data-boss="sirocco">
-                          <img src="./src/img/raid/Portrait-_Sirocco.png" alt="" class="img__boss img__boss--sirocco" />
-                          <div class="img__boss--name">sirocco</div>
-                        </div>
-                        <div class="section-list__record--description typo__record-description">
-                          <p class="typo__record-description--content"><span class="sirocco--enterTimes">3</span> / <span class="sirocco--totleTimes">3</span></p>
-                          <button class="btn btn--record">reset</button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-1-of-2">
-                  <div class="section-list__record--quest">
-                    <ul>
-                      <li id="exile">
-                        <div class="img__boss-shape" data-boss="exile">
-                          <img src="./src/img/raid/Devastar.png" alt="" class="img__boss img__boss--exile" />
-                          <div class="img__boss--name">exile</div>
-                        </div>
-                        <div class="section-list__record--description typo__record-description">
-                          <p class="typo__record-description--content"><span class="exile--enterTimes">3</span> / <span class="exile--totleTimes">3</span></p>
-                          <button class="btn btn--record">reset</button>
-                        </div>
-                      </li>
-                      <li id="oculus">
-                        <div class="img__boss-shape" data-boss="oculus">
-                          <img src="./src/img/raid/Prophet_Ezra.png" alt="" class="img__boss img__boss--oculus" />
-                          <div class="img__boss--name">oculus</div>
-                        </div>
-                        <div class="section-list__record--description typo__record-description">
-                          <p class="typo__record-description--content"><span class="oculus--enterTimes">3</span> / <span class="oculus--totleTimes">3</span></p>
-                          <button class="btn btn--record">reset</button>
-                        </div>
-                      </li>
-                      <li id="panda">
-                        <div class="img__boss-shape" data-boss="panda">
-                          <img src="./src/img/raid/Sarpoza.png" alt="" class="img__boss img__boss--panda" />
-                          <div class="img__boss--name">pandawar</div>
-                        </div>
-                        <div class="section-list__record--description typo__record-description">
-                          <p class="typo__record-description--content"><span class="panda--enterTimes">3</span> / <span class="panda--totleTimes">3</span></p>
-                          <button class="btn btn--record">reset</button>
-                        </div>
-                      </li>
-                      <li id="bp">
-                        <div class="img__boss-shape" data-boss="bp">
-                          <img src="./src/img/raid/Horrendous_Astaros.png" alt="" class="img__boss img__boss--bp" />
-                          <div class="img__boss--name">bp</div>
-                        </div>
-                        <div class="section-list__record--description typo__record-description">
-                          <p class="typo__record-description--content"><span class="bp--enterTimes">3</span> / <span class="bp--totleTimes">3</span></p>
-                          <button class="btn btn--record">reset</button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+      <div class="section-list__record">
+        <div class="section-list__characters">
+          <!-- <div class="section-list__character section-list__character--1" data-id="1">
+                <button>Delete</button>
+                <img src="./img/char/icons/FMage.png" alt="" class="section-list__character--icon" />
+                <p class="section-list__character--name">NanamiKing</p>
+                <p class="section-list__character--br">Guide Mode</p>
+                <div class="section-list__character--guide">
+                  <img src="./img/raid/icons/FW.jpg" alt="FW" class="hidden--none" />
+                  <img src="./img/raid/icons/EX.jpg" alt="EX" class="hidden--none" />
+                  <img src="./img/raid/icons/PW.jpg" alt="PW" class="hidden--none" />
+                  <img src="./img/raid/icons/IS.jpg" alt="IS" class="hidden--none" />
+                  <img src="./img/raid/icons/SI.jpg" alt="SI" class="hidden--none" />
+                  <img src="./img/raid/icons/BP.jpg" alt="BP" class="hidden--none" />
+                  <img src="./img/raid/icons/OC.jpg" alt="OC" class="hidden--none" />
                 </div>
               </div> -->
-            </div>
+          <!-- section-list__character--active -->
+        </div>
+        <div class="section-list__recordArea">
+          <!-- <div class="section-list__record--raid">
+            <ul>
+              <li id="field">
+                <div class="img__boss-shape" data-boss="field">
+                  <img src="./img/raid/190423_thumbnail.jpg" alt="" class="img__boss img__boss--field" />
+                  <div class="img__boss--name">fiend</div>
+                </div>
+                <button class="section-list__record--guide btn btn__top-bar ${guideCheck('field')}">G</button>
+                <div class="section-list__record--description typo__record-description">
+                  <p class="typo__record-description--content"><span class="field--enterTimes ${colorCheck(0)}">1</span> / <span class="field--totleTimes">2</span></p>
+                  <button class="btn btn--record">reset</button>
+                </div>
+              </li>
+              <li id="isys">
+                <div class="img__boss-shape" data-boss="isys">
+                  <img src="./img/raid/Portrait-_Prey-Isys.png" alt="" class="img__boss img__boss--isys" />
+                  <div class="img__boss--name">isys</div>
+                </div>
+                <button class="section-list__record--guide btn btn__top-bar ${guideCheck('isys')}">G</button>
+                <div class="section-list__record--description typo__record-description">
+                  <p class="typo__record-description--content"><span class="isys--enterTimes ${colorCheck(1)}">1</span> / <span class="isys--totleTimes">2</span></p>
+                  <button class="btn btn--record">reset</button>
+                </div>
+              </li>
+              <li id="sirocco">
+                <div class="img__boss-shape" data-boss="sirocco">
+                  <img src="./img/raid/Portrait-_Sirocco.png" alt="" class="img__boss img__boss--sirocco" />
+                  <div class="img__boss--name">sirocco</div>
+                </div>
+                <button class="section-list__record--guide btn btn__top-bar ${guideCheck('sirocco')}">G</button>
+                <div class="section-list__record--description typo__record-description">
+                  <p class="typo__record-description--content"><span class="sirocco--enterTimes ${colorCheck(2)}">1</span> / <span class="sirocco--totleTimes">2</span></p>
+                  <button class="btn btn--record">reset</button>
+                </div>
+              </li>
+            </ul>
           </div>
+          <div class="section-list__record--quest">
+            <ul>
+              <li id="exile">
+                <div class="img__boss-shape" data-boss="exile">
+                  <img src="./img/raid/Devastar.png" alt="" class="img__boss img__boss--exile" />
+                  <div class="img__boss--name">exile</div>
+                </div>
+                <button class="section-list__record--guide btn btn__top-bar ${guideCheck('exile')}">G</button>
+                <div class="section-list__record--description typo__record-description">
+                  <p class="typo__record-description--content"><span class="exile--enterTimes ${colorCheck(3)}">1</span> / <span class="exile--totleTimes">3</span></p>
+                  <button class="btn btn--record">reset</button>
+                </div>
+              </li>
+              <li id="oculus">
+                <div class="img__boss-shape" data-boss="oculus">
+                  <img src="./img/raid/Prophet_Ezra.png" alt="" class="img__boss img__boss--oculus" />
+                  <div class="img__boss--name">oculus</div>
+                </div>
+                <button class="section-list__record--guide btn btn__top-bar ${guideCheck('oculus')}">G</button>
+                <div class="section-list__record--description typo__record-description">
+                  <p class="typo__record-description--content"><span class="oculus--enterTimes ${colorCheck(4)}">1</span> / <span class="oculus--totleTimes">3</span></p>
+                  <button class="btn btn--record">reset</button>
+                </div>
+              </li>
+              <li id="panda">
+                <div class="img__boss-shape" data-boss="panda">
+                  <img src="./img/raid/Sarpoza.png" alt="" class="img__boss img__boss--panda" />
+                  <div class="img__boss--name">pandawar</div>
+                </div>
+                <button class="section-list__record--guide btn btn__top-bar ${guideCheck('panda')}">G</button>
+                <div class="section-list__record--description typo__record-description">
+                  <p class="typo__record-description--content"><span class="panda--enterTimes ${colorCheck(5)}">1</span> / <span class="panda--totleTimes">2</span></p>
+                  <button class="btn btn--record">reset</button>
+                </div>
+              </li>
+              <li id="bp">
+                <div class="img__boss-shape" data-boss="bp">
+                  <img src="./img/raid/Horrendous_Astaros.png" alt="" class="img__boss img__boss--bp" />
+                  <div class="img__boss--name">bp</div>
+                </div>
+                <button class="section-list__record--guide btn btn__top-bar ${guideCheck('bp')}">G</button>
+                <div class="section-list__record--description typo__record-description">
+                  <p class="typo__record-description--content"><span class="bp--enterTimes ${colorCheck(6)}">1</span> / <span class="bp--totleTimes">3</span></p>
+                  <button class="btn btn--record">reset</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="section-list__record--day">
+            <ul>
+              <li id="cardTW">
+                <div class="btn--day">
+                  <img src="./img/raid/cardTW.png" alt="cardTW" />
+                </div>
+              </li>
+            </ul>
+          </div> -->
         </div>
       </div>
     </main>
