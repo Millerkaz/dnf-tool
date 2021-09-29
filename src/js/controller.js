@@ -313,6 +313,7 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
 
     if (!recordCopy[7]) {
       record[currentHero][7] = 'yes';
+      e.target.closest('.btn--day').classList.add('btn--day--active');
       storeInLocal('record', record);
       return;
     }
