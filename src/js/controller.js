@@ -4,7 +4,7 @@
 //   module.hot.accept();
 // }
 
-import $ from 'jquery';
+import $, { isArray } from 'jquery';
 
 import * as model from './model.js';
 
@@ -313,19 +313,20 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
 
     if (!recordCopy[7]) {
       record[currentHero][7] = 'yes';
+      e.target.closest('.btn--day').classList.add('btn--day--active');
       storeInLocal('record', record);
       return;
     }
 
     if (recordCopy[7] === 'yes') {
-      e.target.closest('.btn--day').classList.toggle('btn--day--active');
+      e.target.closest('.btn--day').classList.remove('btn--day--active');
       record[currentHero][7] = 'no';
       storeInLocal('record', record);
       return;
     }
 
     if (recordCopy[7] === 'no') {
-      e.target.closest('.btn--day').classList.toggle('btn--day--active');
+      e.target.closest('.btn--day').classList.add('btn--day--active');
       record[currentHero][7] = 'yes';
       storeInLocal('record', record);
       return;
@@ -698,7 +699,7 @@ function recordEdit(heroName) {
   record = getLocal('record');
 
   //這邊有傳址問題，可能未來會有BUG
-  record[heroName] = [Number($('.field--enterTimes').text()), Number($('.isys--enterTimes').text()), Number($('.sirocco--enterTimes').text()), Number($('.exile--enterTimes').text()), Number($('.oculus--enterTimes').text()), Number($('.panda--enterTimes').text()), Number($('.bp--enterTimes').text())];
+  record[heroName] = [Number($('.field--enterTimes').text()), Number($('.isys--enterTimes').text()), Number($('.sirocco--enterTimes').text()), Number($('.exile--enterTimes').text()), Number($('.oculus--enterTimes').text()), Number($('.panda--enterTimes').text()), Number($('.bp--enterTimes').text()), [...$('.btn--day')[0].classList].includes('btn--day--active') ? 'yes' : 'no'];
 
   storeInLocal('record', record);
 
