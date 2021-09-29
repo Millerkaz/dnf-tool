@@ -32,8 +32,8 @@
   }
 
   &__boss {
-    height: 100%;
-    background-size: contain;
+    height: 10rem;
+    object-fit: cover;
     transition: all 0.2s;
 
     &--field,
