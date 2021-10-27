@@ -4,7 +4,7 @@
 //   module.hot.accept();
 // }
 
-import $, { isArray } from 'jquery';
+import $ from 'jquery';
 
 import * as model from './model.js';
 
@@ -21,8 +21,8 @@ let heroList;
 let record;
 let fox;
 let currentHero;
-// fiend , isys , sirocco , Ex , OCU ,panda , bp
-let initRaidArray = [2, 2, 2, 3, 3, 2, 3, 'no'];
+// fiend , isys , sirocco , ozma , Ex , OCU ,panda , bp ,[day]cardTW
+let initRaidArray = [2, 2, 2, 2, 3, 3, 2, 3, 'no'];
 
 function init() {
   // recordArea.innerHTML = '';
@@ -46,6 +46,7 @@ function guideInit() {
       field: 0,
       isys: 0,
       sirocco: 0,
+      ozma: 0,
       bp: 0,
       panda: 0,
       oculus: 0,
@@ -58,12 +59,17 @@ function guideInit() {
       field: [],
       isys: [],
       sirocco: [],
+      ozma: [],
       bp: [],
       panda: [],
       oculus: [],
       exile: [],
     };
     storeInLocal('guideHero', guideHero);
+  }
+  if (!getLocal('guideLimit').ozma || !getLocal('guideHero').ozma) {
+    storeInLocal('guideLimit', { ...getLocal('guideLimit'), ozma: 0 });
+    storeInLocal('guideHero', { ...getLocal('guideHero'), ozma: [] });
   }
 }
 
@@ -93,7 +99,7 @@ function guideReset(boss) {
 function dayReset(ArrayQuestIndex) {
   let recordEntries = Object.entries(record);
   recordEntries.forEach(v => {
-    // fiend , isys , sirocco , Ex , OCU ,panda , bp , || cardTW
+    // fiend , isys , sirocco , ozma , Ex , OCU ,panda , bp , || cardTW
     v[1][ArrayQuestIndex] = 'no';
   });
 
@@ -123,7 +129,7 @@ function checkDayReset() {
   if (storageDay !== now) {
     localStorage.setItem('daily', JSON.stringify(now));
     storeInLocal('fox', 'not');
-    dayReset(7); // cardTW
+    dayReset(8); // cardTW
 
     guideReset('oculus');
     guideReset('panda');
@@ -141,7 +147,7 @@ function checkDayReset() {
 
     let recordEntries = Object.entries(record);
     recordEntries.forEach(v => {
-      // fiend , isys , sirocco , Ex , OCU ,panda , bp
+      // fiend , isys , sirocco , ozma , Ex , OCU ,panda , bp
       v[1] = [...initRaidArray];
     });
 
@@ -153,6 +159,7 @@ function checkDayReset() {
     guideReset('field');
     guideReset('isys');
     guideReset('sirocco');
+    guideReset('ozma');
     guideReset('exile');
     guideReset('bp');
 
@@ -262,7 +269,7 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
     let boss = e.target.closest('li').id;
     let times = Number(document.querySelector(`.${boss}--enterTimes`).textContent);
 
-    if (boss === 'field' || boss === 'isys' || boss === 'sirocco' || boss === 'panda') {
+    if (boss === 'field' || boss === 'isys' || boss === 'sirocco' || boss === 'panda' || boss === 'ozma') {
       if (times >= 2) return;
       document.querySelector(`.${boss}--enterTimes`).textContent = times + 1;
       recordEdit(currentHero);
@@ -306,28 +313,28 @@ document.querySelector('.section-list__recordArea').addEventListener('click', fu
 });
 
 //day
-
+//! 加新 day 按鈕時記得去新增 recordEdit function 的 array
 document.querySelector('.section-list__recordArea').addEventListener('click', function (e) {
   if (e.target.closest('.btn--day')) {
     let recordCopy = [...record[currentHero]];
 
-    if (!recordCopy[7]) {
-      record[currentHero][7] = 'yes';
+    if (!recordCopy[8]) {
+      record[currentHero][8] = 'yes';
       e.target.closest('.btn--day').classList.add('btn--day--active');
       storeInLocal('record', record);
       return;
     }
 
-    if (recordCopy[7] === 'yes') {
+    if (recordCopy[8] === 'yes') {
       e.target.closest('.btn--day').classList.remove('btn--day--active');
-      record[currentHero][7] = 'no';
+      record[currentHero][8] = 'no';
       storeInLocal('record', record);
       return;
     }
 
-    if (recordCopy[7] === 'no') {
+    if (recordCopy[8] === 'no') {
       e.target.closest('.btn--day').classList.add('btn--day--active');
-      record[currentHero][7] = 'yes';
+      record[currentHero][8] = 'yes';
       storeInLocal('record', record);
       return;
     }
@@ -441,7 +448,6 @@ function showHeroList(guide = false) {
         return true;
       }
     }
-
     let heroBar = `<div class="section-list__character section-list__character--${obj.name} ${guide && obj.name === currentHero ? 'section-list__character--active' : ''}" data-id="${obj.name}">
                   <button class="btn--delete">&times;</button>
                   <img src="./img/char/icons/${className[obj.class]}.png" alt="${obj.class}" class="section-list__character--icon" />
@@ -451,6 +457,7 @@ function showHeroList(guide = false) {
                   <img src="./img/raid/icons/FW.jpg" alt="FW" class="${guideIcon('field') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/IS.jpg" alt="IS" class="${guideIcon('isys') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/SI.jpg" alt="SI" class="${guideIcon('sirocco') ? '' : 'hidden--none'}" />
+                  <img src="./img/raid/icons/ozma.jpg" alt="ozma" class="${guideIcon('ozma') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/EX.jpg" alt="EX" class="${guideIcon('exile') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/OC.jpg" alt="OC" class="${guideIcon('oculus') ? '' : 'hidden--none'}" />
                   <img src="./img/raid/icons/PW.jpg" alt="PW" class="${guideIcon('panda') ? '' : 'hidden--none'}" />
@@ -528,11 +535,11 @@ function renderRaid() {
   recordArea.innerHTML = '';
 
   let colorCheck = function (num) {
-    if (num <= 2) return record[currentHero][num] === 0 ? 'status--red' : record[currentHero][num] === 1 || record[currentHero][num] === 2 || record[currentHero][num] === 3 ? 'status--green' : '';
+    if (num <= 3) return record[currentHero][num] === 0 ? 'status--red' : record[currentHero][num] === 1 || record[currentHero][num] === 2 || record[currentHero][num] === 3 ? 'status--green' : '';
 
-    if ((num > 2) & (num !== 5)) return record[currentHero][num] === 0 || record[currentHero][num] === 1 ? 'status--red' : record[currentHero][num] === 2 || record[currentHero][num] === 3 ? 'status--green' : '';
+    if ((num > 3) & (num !== 6)) return record[currentHero][num] === 0 || record[currentHero][num] === 1 ? 'status--red' : record[currentHero][num] === 2 || record[currentHero][num] === 3 ? 'status--green' : '';
 
-    if (num === 5) return record[currentHero][num] === 0 ? 'status--red' : record[currentHero][num] === 1 || record[currentHero][num] === 2 ? 'status--green' : '';
+    if (num === 6) return record[currentHero][num] === 0 ? 'status--red' : record[currentHero][num] === 1 || record[currentHero][num] === 2 ? 'status--green' : '';
   };
 
   let guideCheck = function (boss) {
@@ -580,6 +587,17 @@ function renderRaid() {
           <button class="btn btn--record">reset</button>
         </div>
       </li>
+      <li id="ozma">
+        <div class="img__boss-shape" data-boss="ozma">
+          <img src="./img/raid/Portrait-Ozma_of_Chaos.png" alt="" class="img__boss img__boss--ozma" />
+          <div class="img__boss--name">ozma</div>
+        </div>
+        <button class="section-list__record--guide btn btn__top-bar ${guideCheck('ozma')}">G</button>
+        <div class="section-list__record--description typo__record-description">
+          <p class="typo__record-description--content"><span class="ozma--enterTimes ${colorCheck(3)}">${record[currentHero][3]}</span> / <span class="ozma--totleTimes">2</span></p>
+          <button class="btn btn--record">reset</button>
+        </div>
+      </li>
     </ul>
   
 </div>
@@ -592,7 +610,7 @@ function renderRaid() {
         </div>
         <button class="section-list__record--guide btn btn__top-bar ${guideCheck('exile')}">G</button>
         <div class="section-list__record--description typo__record-description">
-          <p class="typo__record-description--content"><span class="exile--enterTimes ${colorCheck(3)}">${record[currentHero][3]}</span> / <span class="exile--totleTimes">3</span></p>
+          <p class="typo__record-description--content"><span class="exile--enterTimes ${colorCheck(4)}">${record[currentHero][4]}</span> / <span class="exile--totleTimes">3</span></p>
           <button class="btn btn--record">reset</button>
         </div>
       </li>
@@ -603,7 +621,7 @@ function renderRaid() {
         </div>
         <button class="section-list__record--guide btn btn__top-bar ${guideCheck('oculus')}">G</button>
         <div class="section-list__record--description typo__record-description">
-          <p class="typo__record-description--content"><span class="oculus--enterTimes ${colorCheck(4)}">${record[currentHero][4]}</span> / <span class="oculus--totleTimes">3</span></p>
+          <p class="typo__record-description--content"><span class="oculus--enterTimes ${colorCheck(5)}">${record[currentHero][5]}</span> / <span class="oculus--totleTimes">3</span></p>
           <button class="btn btn--record">reset</button>
         </div>
       </li>
@@ -614,7 +632,7 @@ function renderRaid() {
         </div>
         <button class="section-list__record--guide btn btn__top-bar ${guideCheck('panda')}">G</button>
         <div class="section-list__record--description typo__record-description">
-          <p class="typo__record-description--content"><span class="panda--enterTimes ${colorCheck(5)}">${record[currentHero][5]}</span> / <span class="panda--totleTimes">2</span></p>
+          <p class="typo__record-description--content"><span class="panda--enterTimes ${colorCheck(6)}">${record[currentHero][6]}</span> / <span class="panda--totleTimes">2</span></p>
           <button class="btn btn--record">reset</button>
         </div>
       </li>
@@ -625,7 +643,7 @@ function renderRaid() {
         </div>
         <button class="section-list__record--guide btn btn__top-bar ${guideCheck('bp')}">G</button>
         <div class="section-list__record--description typo__record-description">
-          <p class="typo__record-description--content"><span class="bp--enterTimes ${colorCheck(6)}">${record[currentHero][6]}</span> / <span class="bp--totleTimes">3</span></p>
+          <p class="typo__record-description--content"><span class="bp--enterTimes ${colorCheck(7)}">${record[currentHero][7]}</span> / <span class="bp--totleTimes">3</span></p>
           <button class="btn btn--record">reset</button>
         </div>
       </li>
@@ -634,7 +652,7 @@ function renderRaid() {
 <div class="section-list__record--day">
   <ul>
     <li id="cardTW">
-      <div class="btn--day ${record[currentHero][7] === 'yes' ? 'btn--day--active' : ''}">
+      <div class="btn--day ${record[currentHero][8] === 'yes' ? 'btn--day--active' : ''}">
         <img src="./img/raid/cardTW.png" alt="cardTW" />
       </div>
     </li>
@@ -699,7 +717,7 @@ function recordEdit(heroName) {
   record = getLocal('record');
 
   //這邊有傳址問題，可能未來會有BUG
-  record[heroName] = [Number($('.field--enterTimes').text()), Number($('.isys--enterTimes').text()), Number($('.sirocco--enterTimes').text()), Number($('.exile--enterTimes').text()), Number($('.oculus--enterTimes').text()), Number($('.panda--enterTimes').text()), Number($('.bp--enterTimes').text()), [...$('.btn--day')[0].classList].includes('btn--day--active') ? 'yes' : 'no'];
+  record[heroName] = [Number($('.field--enterTimes').text()), Number($('.isys--enterTimes').text()), Number($('.sirocco--enterTimes').text()), Number($('.ozma--enterTimes').text()), Number($('.exile--enterTimes').text()), Number($('.oculus--enterTimes').text()), Number($('.panda--enterTimes').text()), Number($('.bp--enterTimes').text()), [...$('.btn--day')[0].classList].includes('btn--day--active') ? 'yes' : 'no'];
 
   storeInLocal('record', record);
 

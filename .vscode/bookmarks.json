@@ -4,28 +4,33 @@
 			"path": "src/js/controller.js",
 			"bookmarks": [
 				{
-					"line": 81,
-					"column": 3,
+					"line": 24,
+					"column": 19,
 					"label": ""
 				},
 				{
-					"line": 210,
+					"line": 217,
 					"column": 6,
 					"label": ""
 				},
 				{
-					"line": 307,
+					"line": 314,
 					"column": 4,
 					"label": ""
 				},
 				{
-					"line": 404,
+					"line": 411,
 					"column": 5,
 					"label": ""
 				},
 				{
-					"line": 494,
+					"line": 501,
 					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 713,
+					"column": 19,
 					"label": ""
 				}
 			]
