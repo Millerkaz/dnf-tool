@@ -67,10 +67,13 @@ function guideInit() {
     };
     storeInLocal('guideHero', guideHero);
   }
+
+  // v2.1.0 Ozma update
   if (!getLocal('guideLimit').ozma || !getLocal('guideHero').ozma) {
     storeInLocal('guideLimit', { ...getLocal('guideLimit'), ozma: 0 });
     storeInLocal('guideHero', { ...getLocal('guideHero'), ozma: [] });
 
+    //merge old user record
     let recordEntries = Object.entries(getLocal('record'));
     recordEntries.forEach(v => {
       // fiend , isys , sirocco , ozma , Ex , OCU ,panda , bp , || cardTW
@@ -78,7 +81,6 @@ function guideInit() {
         v[1] = [...v[1].slice(0, 3), 2, ...v[1].slice(3)];
       }
     });
-
     record = Object.fromEntries(recordEntries);
     storeInLocal('record', record);
   }
