@@ -70,6 +70,17 @@ function guideInit() {
   if (!getLocal('guideLimit').ozma || !getLocal('guideHero').ozma) {
     storeInLocal('guideLimit', { ...getLocal('guideLimit'), ozma: 0 });
     storeInLocal('guideHero', { ...getLocal('guideHero'), ozma: [] });
+
+    let recordEntries = Object.entries(getLocal('record'));
+    recordEntries.forEach(v => {
+      // fiend , isys , sirocco , ozma , Ex , OCU ,panda , bp , || cardTW
+      if (v[1].length !== 9) {
+        v[1] = [...v[1].slice(0, 3), 2, ...v[1].slice(3)];
+      }
+    });
+
+    record = Object.fromEntries(recordEntries);
+    storeInLocal('record', record);
   }
 }
 
